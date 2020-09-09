@@ -11,4 +11,11 @@ class Dock
     @rental_log[boat] = renter
   end
 
+  def charge(boat)
+    charge = {}
+    charge[:card_number] = rental_log[boat].credit_card_number
+    charge[:amount] = boat.price_per_hour * [boat.hours_rented, max_rental_time].min
+    charge
+  end
+
 end
