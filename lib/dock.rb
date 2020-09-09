@@ -18,4 +18,10 @@ class Dock
     charge
   end
 
+  def log_hour
+    rental_log.each do |boat, renter|
+      boat.add_hour
+    end
+  end
+
 end
